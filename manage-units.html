@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="./resources/js/app.js"></script>
+        <script>
+            document.write(`<title>Manage Units | ${title}</title>`);
+        </script>
+        <link rel="stylesheet" href="./resources/css/global.css" />
+        <link rel="stylesheet" href="./resources/css/manage-units.css" />
+    </head>
+    <body>
+        <header>
+            <div id="navbar">
+                <a id="title" href="./index.html">
+                    <span
+                        ><script>
+                            document.write(title);
+                        </script></span
+                    >
+                </a>
+                <div id="links">
+                    <a href="./index.html">Count Sheet</a>
+                    <a href="./manage-locations.html">Locations</a>
+                    <a href="./manage-units.html">Units</a>
+                    <a href="./manage-items.html">Items</a>
+                </div>
+            </div>
+        </header>
+
+        <main id="main">
+            <section id="init">
+                <h1>Manage Units</h1>
+                <h2>Add, edit, or remove inventory storage units.</h2>
+                <div id="instructions">
+                    <h3>How to Manage Units</h3>
+                    <h4>Loading Units</h4>
+                    <ol>
+                        <li>
+                            Click <strong>Load Units</strong> and select your existing <code>units.json</code> file from
+                            your <code
+                                ><script>
+                                    document.write(folderName);
+                                </script></code
+                            > folder.
+                        </li>
+                        <li>The current units will appear in the form.</li>
+                    </ol>
+                    <p style="background-color: yellow; padding: 2px; border-radius: 5px;"><em><strong>Warning!</strong> editing or removing units may cause previously saved count sheets that use those units to load incorrectly and may affect items that use those units. <strong>Always create a copy of your data files before making changes in this app.</strong> If you remove units that are used by any items, remember to modify those items to correct the missing locations.</em></p>
+                    <h4>Adding, Editing, and Removing Units</h4>
+                    <ul>
+                        <li>
+                            <strong>Add:</strong> Enter a unit name and abbreviation in the new unit fields and click
+                            <strong>Add Unit.</strong>
+                        </li>
+                        <li>
+                            <strong>Edit:</strong> Change the name and/or abbreviation in the corresponding text field.
+                        </li>
+                        <li>
+                            <strong>Remove:</strong> Click <strong>Remove</strong> beside the unit you want to remove.
+                        </li>
+                    </ul>
+                    <h4>Saving Your Changes</h4>
+                    <p>
+                        When you're finished making changes, click <strong>Save Units</strong>. Your browser will
+                        download an updated file named <code>units.json</code>.
+                    </p>
+                    <p>
+                        <strong>Important: Saving does not automatically update the original file!</strong> You must
+                        replace the existing file with the downloaded version for your changes to take effect the next
+                        time you use Countulator.
+                    </p>
+                    <ol>
+                        <li>Click <strong>Save Units</strong> to download the updated file.</li>
+                        <li>
+                            Locate the downloaded <code>units.json</code> file. Depending on your browser settings, it
+                            may automatically save to your default Downloads folder without prompting you to choose a
+                            location.
+                        </li>
+                        <li>
+                            Open the downloaded file's location and copy or move it into your
+                            <code
+                                ><script>
+                                    document.write(folderName);
+                                </script></code
+                            > folder.
+                        </li>
+                        <li>
+                            <strong>Replace the existing</strong> <code>units.json</code> <strong>file</strong> when
+                            prompted. Make sure the new file has the same name and is in the correct folder.
+                        </li>
+                    </ol>
+                    <p>
+                        Once you've replaced the original file, your changes are saved and will be available the next
+                        time you load the units.
+                    </p>
+                    <p>
+                        <strong>Tip:</strong> If you're unsure whether your changes were saved correctly, reopen the
+                        updated <code>units.json</code> file in your editor and verify its contents.
+                    </p>
+                </div>
+                <div id="load-button">
+                    <label for="units-file" class="button">Load Units</label>
+                    <input type="file" id="units-file" accept=".json,application/json" hidden />
+                </div>
+            </section>
+
+            <section id="content">
+                <h1>Manage Units</h1>
+                <h2>Add, edit, or remove inventory storage units.</h2>
+
+                <p id="backup-recommendation">
+                    <strong>Recommendation:</strong> Before making changes, create a backup of your data files. If a
+                    change causes unexpected problems, you can restore the original files rather than having to rebuild
+                    your data.
+                </p>
+
+                <form id="add-unit-form"></form>
+
+                <button id="save-units" class="button" disabled>Save Units</button>
+
+                <div id="status"></div>
+            </section>
+        </main>
+
+        <dialog>
+            <form method="dialog">
+                <h2>Warning!</h2>
+                <h4>Are you sure you want to remove this unit?</h4>
+                <p>
+                    Removing this unit may affect inventory items that use it. Some items may need to be updated before
+                    they appear correctly on the inventory count sheet.
+                </p>
+                <p>You can repair affected items by editing them in Item Management.</p>
+                <div id="dialog-buttons">
+                    <button type="submit" value="cancel" class="cancel">Cancel</button>
+                    <button type="submit" value="remove" class="danger">Remove</button>
+                </div>
+            </form>
+        </dialog>
+
+        <script src="./resources/js/manage-units.js"></script>
+    </body>
+</html>

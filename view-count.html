@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="./resources/js/app.js"></script>
+        <script>
+            document.write(`<title>View Count | ${title}</title>`);
+        </script>
+        <link rel="stylesheet" href="./resources/css/global.css" />
+        <!-- <link rel="stylesheet" href="./resources/css/count-sheet.css" /> -->
+    </head>
+    <body onload="loadCount()">
+        <header>
+            <div id="navbar">
+                <a id="title" href="./index.html">
+                    <span
+                        ><script>
+                            document.write(title);
+                        </script></span
+                    >
+                </a>
+                <div id="links">
+                    <a href="./index.html">Count Sheet</a>
+                    <a href="./manage-locations.html">Locations</a>
+                    <a href="./manage-units.html">Units</a>
+                    <a href="./manage-items.html">Items</a>
+                </div>
+            </div>
+        </header>
+
+        <main id="main">
+
+        </main>
+
+        <script src="./resources/js/view-count.js"></script>
+    </body>
+</html>

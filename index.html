@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="./resources/js/app.js"></script>
+        <script>
+            document.write(`<title>${title}</title>`);
+        </script>
+        <link rel="stylesheet" href="./resources/css/global.css" />
+        <link rel="stylesheet" href="./resources/css/count-sheet.css" />
+    </head>
+    <body>
+        <header>
+            <div id="navbar">
+                <a id="title" href="./index.html">
+                    <span
+                        ><script>
+                            document.write(title);
+                        </script></span
+                    >
+                </a>
+                <div id="links">
+                    <a href="./index.html">Count Sheet</a>
+                    <a href="./manage-locations.html">Locations</a>
+                    <a href="./manage-units.html">Units</a>
+                    <a href="./manage-items.html">Items</a>
+                </div>
+            </div>
+        </header>
+
+        <main id="main">
+            <section id="init">
+                <h1>Inventory Count</h1>
+
+                <div id="load-button">
+                    <label for="items-file" class="button">Start New Count</label>
+                    <input
+                        type="file"
+                        id="items-file"
+                        accept=".json,application/json"
+                        hidden
+                        webkitdirectory
+                        multiple
+                    />
+                </div>
+            </section>
+
+            <section id="content">
+                <div id="tabs"></div>
+                <div id="count"></div>
+
+                <div id="button-container">
+                    <button id="view-count" class="button">View Count</button>
+                    <button id="save-count" class="button">Save Count</button>
+                </div>
+            </section>
+        </main>
+
+        <script src="./resources/js/count-sheet.js"></script>
+    </body>
+</html>

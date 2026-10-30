@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="./resources/js/app.js"></script>
+        <script>
+            document.write(`<title>Manage Items | ${title}</title>`);
+        </script>
+        <link rel="stylesheet" href="./resources/css/global.css" />
+        <link rel="stylesheet" href="./resources/css/manage-items.css" />
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid #333333;
+            }
+
+            th,
+            td {
+                padding: 8px;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div id="navbar">
+                <a id="title" href="./index.html">
+                    <span
+                        ><script>
+                            document.write(title);
+                        </script></span
+                    >
+                </a>
+                <div id="links">
+                    <a href="./index.html">Count Sheet</a>
+                    <a href="./manage-locations.html">Locations</a>
+                    <a href="./manage-units.html">Units</a>
+                    <a href="./manage-items.html">Items</a>
+                </div>
+            </div>
+        </header>
+
+        <div id="sidebar"></div>
+
+        <main id="main">
+            <section id="init">
+                <h1>Manage Items</h1>
+                <h2>Add, edit, or remove inventory items.</h2>
+                <div id="instructions">
+                    <h3>How to Manage Items</h3>
+                    <h4>Loading Items</h4>
+                    <ol>
+                        <li>
+                            Click <strong>Load Items</strong> and select your
+                            <code
+                                ><script>
+                                    document.write(folderName);
+                                </script></code
+                            >
+                            folder.
+                            <ul>
+                                <li>
+                                    Note: Depending on your browser, you may not be able to select the folder and may
+                                    need to select all of the files in the folder instead.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>The current items will appear in the form.</li>
+                    </ol>
+                    <p style="background-color: yellow; padding: 2px; border-radius: 5px">
+                        <em
+                            ><strong>Warning!</strong> editing or removing items may cause previously saved count sheets
+                            that use those items to load incorrectly.
+                            <strong
+                                >Always create a copy of your data files before making changes in this app.</strong
+                            ></em
+                        >
+                    </p>
+                    <h4>Adding and Removing Items</h4>
+                    <ul>
+                        <li>
+                            <strong>Add:</strong> Enter an item name, select a base unit, and select a base storage
+                            location. Then click <strong>Add Item.</strong>
+                        </li>
+                        <li>
+                            <strong>Remove:</strong> Click <strong>Remove Item</strong> beside the item you want to remove.
+                        </li>
+                    </ul>
+                    <h3>Editing Items</h3>
+                    <h4>Basic Information</h4>
+                    <ul>
+                        <li>You can change the item's name, base unit, or base location at any time.</li>
+                    </ul>
+                    <h4>Additional Units</h4>
+                    <p>
+                        An item can have multiple units of measurement and be stored in multiple locations. Each
+                        additional unit requires a conversion, a unit, and a location.
+                    </p>
+                    <h4>Adding Additional Units</h4>
+                    <ol>
+                        <li>Click <strong>Add Units</strong> to add a new unit.</li>
+                        <li>Enter the conversion value and select the unit and location.</li>
+                        <li>
+                            Click the
+                            <button
+                                style="border: 1px solid black; color: black; border-radius: 5px; padding: 2px"
+                                disabled
+                            >
+                                &#10003;
+                            </button>
+                            button to confirm the unit before adding another.
+                        </li>
+                    </ol>
+                    <p>You must confirm the current unit before you can add another one.</p>
+                    <h4>Understanding Unit Conversions</h4>
+                    <p>
+                        Conversions are based on the item's base unit. The conversion value represents how many of the
+                        selected units are equivalent to <strong>one base unit</strong>.
+                    </p>
+                    <p>
+                        For example, if the base unit is a case containing two bags of an item, enter "2" as the
+                        conversion value and select <strong>Bag</strong> as the unit.
+                    </p>
+                    <h4>Storing Units in Multiple Locations</h4>
+                    <p>
+                        Each additional unit must have a conversion value, unit, and location. You can add the same unit
+                        and conversion more than once if the units are stored in different locations.
+                    </p>
+                    <p>
+                        For example, suppose you store one-third lexans of an item in both the cooler and the makeline.
+                        Add two separate entries. Example:
+                    </p>
+                    <table>
+                        <tr>
+                            <th>Conversion</th>
+                            <th>Unit</th>
+                            <th>Location</th>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>1/3 Lexan</td>
+                            <td>Cooler</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>1/3 Lexan</td>
+                            <td>Makeline</td>
+                        </tr>
+                    </table>
+                    <p>Both entries would use the same conversion value and unit, but each would have its own location.</p>
+                    <h4>Editing and Removing Additional Units</h4>
+                    <ul>
+                        <li><strong>Edit:</strong> You can change the conversion value, unit, or location of an existing entry.</li>
+                        <li><strong>Remove:</strong> Click <strong>Remove Unit</strong> to delete an entry you no longer need.</li>
+                    </ul>
+                    <h4>Saving Your Changes</h4>
+                    <p>
+                        When you're finished making changes, click <strong>Save Items</strong>. Your browser will
+                        download an updated file named <code>items.json</code>.
+                    </p>
+                    <p>
+                        <strong>Important: Saving does not automatically update the original file!</strong> You must
+                        replace the existing file with the downloaded version for your changes to take effect the next
+                        time you use <script>
+                            document.write(title);
+                        </script>.
+                    </p>
+                    <ol>
+                        <li>Click <strong>Save Items</strong> to download the updated file.</li>
+                        <li>
+                            Locate the downloaded <code>items.json</code> file. Depending on your browser settings,
+                            it may automatically save to your default Downloads folder without prompting you to choose a
+                            location.
+                        </li>
+                        <li>
+                            Open the downloaded file's location and copy or move it into your
+                            <code
+                                ><script>
+                                    document.write(folderName);
+                                </script></code
+                            > folder.
+                        </li>
+                        <li>
+                            <strong>Replace the existing</strong> <code>items.json</code> <strong>file</strong> when
+                            prompted. Make sure the new file has the same name and is in the correct folder.
+                        </li>
+                    </ol>
+                    <p>
+                        Once you've replaced the original file, your changes are saved and will be available the next
+                        time you load the items.
+                    </p>
+                    <p>
+                        <strong>Tip:</strong> If you're unsure whether your changes were saved correctly, reopen the
+                        updated <code>items.json</code> file in your editor and verify its contents.
+                    </p>
+                </div>
+                </div>
+
+                <div id="load-button">
+                    <label for="items-file" class="button">Load Items</label>
+                    <input
+                        type="file"
+                        id="items-file"
+                        accept=".json,application/json"
+                        hidden
+                        webkitdirectory
+                        multiple
+                    />
+                </div>
+            </section>
+
+            <section id="content">
+                <h1>Manage Items</h1>
+                <h2>Add, edit, or remove inventory items.</h2>
+
+                <p id="backup-recommendation">
+                    <strong>Recommendation:</strong> Before making changes, create a backup of your data files. If a
+                    change causes unexpected problems, you can restore the original files rather than having to rebuild
+                    your data.
+                </p>
+
+                <form id="add-item-form"></form>
+
+                <button id="save-items" class="button">Save Items</button>
+
+                <div id="status"></div>
+            </section>
+        </main>
+
+        <dialog id="item-dialog">
+            <form method="dialog">
+                <h2>Warning!</h2>
+                <h4>Are you sure you want to remove this item?</h4>
+                <p>
+                    Removing this item may affect previous inventory counts that use it. It is recommended that you make
+                    a copy of your <code>item.json</code> file before completing this action.
+                </p>
+                <div id="dialog-buttons">
+                    <button type="submit" value="cancel" class="cancel">Cancel</button>
+                    <button type="submit" value="remove" class="danger">Remove</button>
+                </div>
+            </form>
+        </dialog>
+
+        <dialog id="unit-dialog">
+            <form method="dialog">
+                <h2>Warning!</h2>
+                <h4>Are you sure you want to remove this additional unit?</h4>
+                <p>
+                    Removing this unit may affect previous inventory counts that use it. It is recommended that you make
+                    a copy of your <code>item.json</code> file before completing this action.
+                </p>
+                <div id="dialog-buttons">
+                    <button type="submit" value="cancel" class="cancel">Cancel</button>
+                    <button type="submit" value="remove" class="danger">Remove</button>
+                </div>
+            </form>
+        </dialog>
+
+        <script src="./resources/js/manage-items.js"></script>
+    </body>
+</html>

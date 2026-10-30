@@ -1,0 +1,93 @@
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: scroll;
+    position: fixed;
+    top: 150px;
+    left: 40px;
+    height: calc(90vh - 150px);
+    width: 200px;
+}
+
+#sidebar a,
+#sidebar a:visited,
+#sidebar a:active {
+    color: var(--button-bg);
+}
+
+#content input {
+    width: 175px;
+}
+
+#content button {
+    width: 150px;
+}
+
+#content select {
+    width: 150px;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+ol,
+ul {
+    padding-left: 1.5rem;
+}
+
+li {
+    padding-bottom: 5px;
+}
+
+code {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1px 3px;
+    border-radius: 5px;
+    font-family: monospace;
+}
+
+form {
+    padding-top: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    padding: 10px 0 20px;
+    scroll-margin-top: 75px;
+}
+
+.input {
+    display: flex;
+    gap: 10px;
+}
+
+.disabled-button,
+.disabled-button:hover {
+    background-color: color-mix(in oklab, var(--button-bg), white 50%);
+    cursor: not-allowed;
+}
+
+.unit-save {
+    max-width: 70px;
+}
+
+.unit-cancel {
+    max-width: 69px;
+    background-color: var(--button-text);
+    color: var(--button-bg);
+}
+
+.unit-cancel:hover {
+    background-color: color-mix(in oklab, var(--button-text), black 15%);
+}
