@@ -1,0 +1,31 @@
+#content {
+    display: flex;
+}
+
+#content table {
+    border-collapse: collapse;
+    margin-top: 40px;
+}
+
+#content table tr td {
+    border-bottom: 1px solid black;
+    vertical-align: baseline;
+    padding: 10px;
+}
+
+#content table tr td:first-child {
+    padding-right: 100px;
+    padding-left: 50px;
+    font-weight: bold;
+}
+
+#content table tr td:last-child {
+    font-weight: bold;
+    font-size: smaller;
+    padding-right: 50px;
+}
+
+#content table tr td:nth-child(even) {
+    font-size: larger;
+    text-align: end;
+}

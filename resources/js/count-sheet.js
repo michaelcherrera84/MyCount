@@ -219,6 +219,11 @@ function viewCount() {
     window.open("view-count.html", "_blank");
 }
 
+function printCountSheet() {
+    window.open("print-sheet.html", "_blank");
+}
+
 document.querySelector("#items-file").addEventListener("change", readItems);
+document.querySelector("#print-count-sheet").addEventListener("click", printCountSheet);
 saveButton.addEventListener("click", saveCount);
 viewCountButton.addEventListener("click", viewCount);

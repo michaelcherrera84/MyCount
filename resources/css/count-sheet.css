@@ -5,6 +5,12 @@
     gap: 0;
 }
 
+#print {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
 #tabs {
     position: relative;
     display: flex;

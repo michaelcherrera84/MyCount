@@ -4,6 +4,7 @@ let units = [];
 let totals = new Map();
 
 const main = document.querySelector("#main");
+const content = document.querySelector("#content");
 
 function loadCount() {
     try {
@@ -27,9 +28,12 @@ function loadCount() {
     count.forEach((location) => {
         location.counts.forEach((item) => {
             if (totals.has(item.item)) {
-                totals.set(item.item, totals.get(item.item) + (1.0 / item.conversion) * item.count);
+                totals.set(
+                    item.item,
+                    Math.round((totals.get(item.item) + (1.0 / item.conversion) * item.count) * 100) / 100,
+                );
             } else {
-                totals.set(item.item, (1 / item.conversion) * item.count);
+                totals.set(item.item, Math.round((1 / item.conversion) * item.count * 100) / 100);
             }
         });
     });
@@ -57,5 +61,5 @@ function renderCount() {
         countTable.append(countRow);
     });
 
-    main.append(countTable);
+    content.append(countTable);
 }
