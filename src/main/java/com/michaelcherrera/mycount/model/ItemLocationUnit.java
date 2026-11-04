@@ -4,6 +4,11 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
+/**
+ * Represents a unit of measurement available for a specific item at a specific
+ * location. Stores the conversion factor relative to the item's base unit and
+ * indicates whether the unit is used for prepared inventory.
+ */
 @Entity
 @Table(name = "item_location_units", uniqueConstraints = {
         @UniqueConstraint(columnNames = { "item_location_id", "unit_id" })

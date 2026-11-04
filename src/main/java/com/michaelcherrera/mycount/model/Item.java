@@ -5,6 +5,11 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents an inventory item that can be tracked across one or more locations.
+ * Each item has a name, optional description, and a base unit of measurement
+ * used to calculate quantities across its associated locations and units.
+ */
 @Entity
 @Table(name = "items")
 public class Item {

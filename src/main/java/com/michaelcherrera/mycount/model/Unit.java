@@ -2,6 +2,10 @@ package com.michaelcherrera.mycount.model;
 
 import jakarta.persistence.*;
 
+/**
+ * Represents a unit of measurement used to track inventory quantities.
+ * Examples include cases, bags, boxes, and storage containers.
+ */
 @Entity
 @Table(name = "units")
 public class Unit {

@@ -5,6 +5,11 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the association between an inventory item and a physical location.
+ * Defines whether the location is the item's base location and maintains the
+ * collection of units and their conversion factors available at that location.
+ */
 @Entity
 @Table(name = "item_locations", uniqueConstraints = { @UniqueConstraint(columnNames = { "item_id", "location_id" }) })
 public class ItemLocation {

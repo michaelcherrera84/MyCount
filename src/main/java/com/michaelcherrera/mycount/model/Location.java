@@ -3,7 +3,8 @@ package com.michaelcherrera.mycount.model;
 import jakarta.persistence.*;
 
 /**
- * Entity class for inventory storage locations.
+ * Represents a physical storage or inventory location where items are tracked.
+ * Examples include dry storage, coolers, freezers, and makelines.
  */
 @Entity
 @Table(name = "locations")
