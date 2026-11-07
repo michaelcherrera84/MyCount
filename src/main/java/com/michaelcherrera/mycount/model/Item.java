@@ -11,14 +11,16 @@ import java.util.List;
  * used to calculate quantities across its associated locations and units.
  */
 @Entity
-@Table(name = "items")
+@Table(name = "items", uniqueConstraints = {
+        @UniqueConstraint(columnNames = { "name", "store_id" })
+})
 public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String name;
 
     private String description;
@@ -28,15 +30,20 @@ public class Item {
     private Unit baseUnit;
 
     @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ItemLocation> locations = new ArrayList<>();
+    private final List<ItemLocation> locations = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id", nullable = false)
+    private Store store;
 
     public Item() {}
 
-    public Item(Long id, String name, String description, Unit baseUnit) {
+    public Item(Long id, String name, String description, Unit baseUnit, Store store) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.baseUnit = baseUnit;
+        this.store = store;
     }
 
     public Long getId() { return id; }
@@ -54,4 +61,8 @@ public class Item {
     public void setBaseUnit(Unit baseUnit) { this.baseUnit = baseUnit; }
 
     public List<ItemLocation> getLocations() { return locations; }
+
+    public Store getStore() { return store; }
+
+    public void setStore(Store store) { this.store = store; }
 }

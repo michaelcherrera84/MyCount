@@ -29,7 +29,7 @@ public class ItemLocation {
     private boolean baseLocation;
 
     @OneToMany(mappedBy = "itemLocation", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ItemLocationUnit> units = new ArrayList<>();
+    private final List<ItemLocationUnit> units = new ArrayList<>();
 
     public ItemLocation() {}
 

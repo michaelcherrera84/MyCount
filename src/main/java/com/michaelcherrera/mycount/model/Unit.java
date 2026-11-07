@@ -7,26 +7,33 @@ import jakarta.persistence.*;
  * Examples include cases, bags, boxes, and storage containers.
  */
 @Entity
-@Table(name = "units")
+@Table(name = "units", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"name", "store_id"})
+})
 public class Unit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String name;
 
     private String description;
 
     private String abbreviation;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id", nullable = false)
+    private Store store;
+
     public Unit() {}
 
-    public Unit(String name, String description, String abbreviation) {
+    public Unit(String name, String description, String abbreviation,  Store store) {
         this.name = name;
         this.description = description;
         this.abbreviation = abbreviation;
+        this.store = store;
     }
 
     public Long getId() { return id; }
@@ -42,4 +49,8 @@ public class Unit {
     public String getAbbreviation() { return abbreviation; }
 
     public void setAbbreviation(String abbreviation) { this.abbreviation = abbreviation; }
+
+    public Store getStore() { return store; }
+
+    public void setStore(Store store) { this.store = store; }
 }
